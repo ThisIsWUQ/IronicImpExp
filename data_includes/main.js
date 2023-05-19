@@ -17,15 +17,15 @@ DebugOff()
 
 Sequence("consent", "information","instructions", shuffle(randomize("FillersPrompt"), randomize("TestDemo")), shuffle(randomize("Test"), randomize("Fillers")), "send", "completion_screen")
 
-// Consent form
+// 1) Consent Form
 newTrial("consent",
-    newHtml("consent_form", "consent.html")
+    newHtml("consent_form", "consent.html") // display the agreement (as .html file) on the screen
         .cssContainer({"width":"720px"})
         .center()
-        .checkboxWarning("ท่านต้องแสดงความยินยอมก่อนไปหน้าถัดไป")
+        .checkboxWarning("ท่านต้องแสดงความยินยอมก่อนไปหน้าถัดไป") // after reading the agreement, participants must check the box (agree to do the test) to continue the experiment
         .print()
     ,
-    newButton("continue", "คลิกที่นี่ เพื่อไปหน้าถัดไป")
+    newButton("continue", "คลิกที่นี่ เพื่อไปหน้าถัดไป") // create a button for going to the next page
         .center()
         .print()
         .wait(getHtml("consent_form").test.complete()
@@ -33,7 +33,7 @@ newTrial("consent",
         )
 )
 
-//information
+// 2) Participant's Information
 newTrial("information",
     newHtml("participant_gender", "part_gender.html")
         .inputWarning("We would like you to type some text in these fields")
@@ -41,7 +41,7 @@ newTrial("information",
         .center()
         .print()
     ,
-    newDropDown("input_gender", "--โปรดเลือกเพศสภาพที่ตรงกับท่าน--")
+    newDropDown("input_gender", "--โปรดเลือกเพศสภาพที่ตรงกับท่าน--") // a dropdown list asks participants about their gender
         .add("ชาย", "หญิง", "ไม่อยู่ในระบบเพศขั้วตรงข้าม (non-binary)", "บุคคลข้ามเพศ (transgender)")
         .center()
         .print()
@@ -53,7 +53,7 @@ newTrial("information",
         .center()
         .print()
     ,    
-    newDropDown("input_age", "--โปรดเลือกช่วงอายุที่ตรงกับท่าน--")
+    newDropDown("input_age", "--โปรดเลือกช่วงอายุที่ตรงกับท่าน--") // a dropdown list asks participants about their age
         .add("5-15", "16-25", "26-35", "36-45", "46-55", "56-65", "66-75")
         .center()
         .print()
@@ -65,7 +65,7 @@ newTrial("information",
         .center()
         .print()
     ,
-     newDropDown("input_hour", "--โปรดเลือกช่วงจำนวนชั่วโมงที่ตรงกับการใช้เวลากับสื่อสังคมออนไลน์--")
+     newDropDown("input_hour", "--โปรดเลือกช่วงจำนวนชั่วโมงที่ตรงกับการใช้เวลากับสื่อสังคมออนไลน์--") // a dropdown list asks participants about their hours of social media consumption
         .add("0 (ไม่ใช้ หรือแทบจะไม่ใช้เวลากับสื่อสังคมออนไลน์)", "1-3", "4-6", "7-9", "10-12", "13-15", "16+ (มากกว่า 16 ชั่วโมง)")
         .center()
         .print()
@@ -77,7 +77,7 @@ newTrial("information",
         .center()
         .print()
     ,    
-    newDropDown("input_hand", "--โปรดเลือกมือข้างที่ท่านถนัด--")
+    newDropDown("input_hand", "--โปรดเลือกมือข้างที่ท่านถนัด--") // a dropdown list asks participants about their dominant hand
         .add("ถนัดมือซ้าย", "ถนัดมือขวา")
         .center()
         .print()
@@ -89,11 +89,12 @@ newTrial("information",
         .center()
         .print()
     ,
-    newButton("continue_next", "คลิกที่นี่ เพื่อไปหน้าถัดไป")
+    newButton("continue_next", "คลิกที่นี่ เพื่อไปหน้าถัดไป") // a button, "go to the next page"
         .center()
         .print()
         .wait()
     ,
+    // create variables for storing participants' information
     newVar("Gender")
         .global()
         .set(getDropDown("input_gender"))
@@ -118,6 +119,7 @@ newTrial("instructions",
         .center()
         .print()
     ,
+    // Test Instruction
     newText("instructions-1", "ข้อชี้แนะในการทำแบบทดสอบ")
     ,
     newText("instructions-2", "ขอต้อนรับทุกท่านเข้าสู่แบบทดสอบ !")
@@ -141,7 +143,7 @@ newTrial("instructions",
     ,
     newText("instructions-7", "หากท่านไม่เลือกตัวเลือกคำตอบภายใน 5 วินาที แบบทดสอบจะไปยังหน้าถัดไปโดยอัตโนมัติ")
     ,
-    newButton("wait", "คลิกที่นี่ เพื่อเริ่มทำแบบทดสอบ")
+    newButton("wait", "คลิกที่นี่ เพื่อเริ่มทำแบบทดสอบ") // a button, "start the test"
         .center()
         .print()
         .wait()
@@ -180,16 +182,17 @@ Template("Filler_Image - 1.csv", row =>
             .print()
             .log()
         ,
-        newTimer("timeout1", 5000) //edit the number to change the time limit (in millisecond)
-            .start()
+        newTimer("timeout1", 5000) // edit the number to change the time limit (in millisecond)
+            .start() // start the timer
         ,
-        newKey("keypress1", "FJ")
-            .log("first")
+        newKey("keypress1", "FJ") // a key, choose either F or J
+            .log("first") // keep log of the key pressed
             .callback(getTimer("timeout1").stop()) // the timer stops when a button (either F or J) is pressed
         ,
         getTimer("timeout1")
             .wait() // the timer waits for 5 seconds before skipping autonatically to the next item
     )
+    // keep logs of participants' performance 
     .log("item", row.item)
     .log("image_subj", row.image_subject)
     .log("quest_con", row.question_content)
@@ -371,13 +374,13 @@ Template("Filler_Image - 2.csv", row =>
 // Send results manually
 SendResults("send")
 
-// Completion screen
+// Completion/End Screen
 newTrial("completion_screen",
-    newText("thanks", "<b>ขอขอบคุณอย่างยิ่งที่ท่านเข้าร่วมทำแบบทดสอบนี้</b>")
+    newText("thanks", "<b>ขอขอบคุณอย่างยิ่งที่ท่านเข้าร่วมทำแบบทดสอบนี้</b>") // express gratitude to participants
         .center()
         .print()
     ,
-    newText("exit_window", "ท่านสามารถปิดหรืออกจากหน้าจอนี้ได้")
+    newText("exit_window", "ท่านสามารถปิดหรืออกจากหน้าจอนี้ได้") // a message ensuring that the participants are safe and free to leave the test
         .center()
         .print()
     ,
