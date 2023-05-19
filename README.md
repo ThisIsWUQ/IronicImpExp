@@ -1,5 +1,6 @@
 # Ironic Implicature Experiment in PCIbex
 Code for implementing an ironic-implicature experiment using Ibex framework in PCIbex
+Sample of the online hosting experiment: https://farm.pcibex.net/r/iwwqMA/experiment.html?test=true
 
 ## Objectives
 This experiment was conducted to study:
