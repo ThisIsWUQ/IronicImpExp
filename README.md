@@ -3,6 +3,8 @@ Code for implementing an ironic-implicature experiment using Ibex framework in P
 
 Sample of the online hosting experiment: https://farm.pcibex.net/r/iwwqMA/experiment.html?test=true
 
+To view the main script: data_includes -> main.js
+
 ## Objectives
 This experiment was conducted to study:
 1) are phrases marked with the irony-emoji marker, especially the emoji :roll_eyes:, considered as statements conveying ironic implicature by native speakers of Thai language?
