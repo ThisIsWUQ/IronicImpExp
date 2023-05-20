@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <h2>รบกวนผู้เข้าร่วมทำแบบทดสอบช่วยระบุข้อมูลต่อไปนี้</h2>
+        <p>คลิกที่กล่องตัวเลือกด้านล่างเพื่อเลือกตัวเลือกที่ตรงกับท่าน</p>
+        
+        <h3>เพศสภาพ</h3>
+        <p>เพศสภาพ หมายถึง ความนึกคิดเกี่ยวกับตัวตนของท่านว่าเป็นผู้ชาย, ผู้หญิง, เป็นทั้งสองเพศ, ไม่ใช่ทั้งสองเพศ, เพศที่ไม่ได้เป็นไปตามขนบสังคม หรือไม่ใช่เพศใดเลย</p>
+        <form>
+            <select name="gender">
+                <option value="">โปรดเลือกเพศสภาพที่ตรงกับท่าน</option>
+                <option value="man">ชาย</option>
+                <option value="woman">หญิง</option>
+                <option value="nonbinary">ไม่อยู่ในระบบเพศขั้วตรงข้าม (non-binary)</option>
+                <option value="trans">บุคคลข้ามเพศ</option>
+                <option value="transman">ชายข้ามเพศ</option>
+                <option value="transwoman">หญิงข้ามเพศ</option>
+                <option value="agender">ไม่มีเพศ</option>
+            </select>    
+        </form>    
+        
+        <h3>อายุ</h3>
+        <p>เช่น หากท่านอายุ 35 ปี ให้เลือกตัวเลือกช่วงอายุ 26-35 ปี หากท่านอายุ 46 ปี ให้เลือกตัวเลือกช่วงอายุ 46-55 ปี</p>
+        <form>
+            <select name="age">
+                <option value="">โปรดเลือกช่วงอายุที่ตรงกับท่าน</option>
+                <option value="genA0">5-15</option>
+                <option value="genZ0">16-25</option>
+                <option value="genY0">26-35</option>
+                <option value="genX1">36-45</option>
+                <option value="genX2">46-55</option>
+                <option value="genB1">56-65</option>
+                <option value="genB2">66-75</option>
+            </select>    
+        </form>
+
+        <h3>จำนวนชั่วโมงโดยประมาณที่ท่านใช้สื่อสังคมออนไลน์ (social media) ในหนึ่งวัน</h3>
+        <p>เช่น หากท่านใช้ twitter โดยประมาณ 10 ชั่วโมงต่อวัน ให้เลือกเลขเลข 10 ในกล่องตัวเลือกด้านล่าง</p>
+        <form>
+            <select name="duration">
+                <option value="">โปรดเลือกช่วงจำนวนชั่วโมงที่ตรงกับการใช้เวลากับสื่อสังคมออนไลน์</option>
+                <option value="h0">0 (ไม่ใช้ หรือแทบจะไม่ใช้เวลากับสื่อสังคมออนไลน์)</option>
+                <option value="h1">1-3</option>
+                <option value="h2">4-6</option>
+                <option value="h3">4-6</option>
+                <option value="h4">7-9</option>
+                <option value="h5">10-12</option>
+                <option value="h6">13-15</option>
+                <option value="h7">16+ (มากกว่า 16 ชั่วโมง)</option>
+            </select>    
+        </form>
+    </body>
+</html>
