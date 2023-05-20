@@ -1,6 +1,0 @@
-﻿group,item,stimuli,stem_mood,stem_frequency,status,condition,cond_num,option1,option2
-1,1,งาม,positive,5753,demo,control,1,งาม,ไม่งาม
-1,2,เบา😄,negative,6281,demo,emoji_neutral,2,เบา,ไม่เบา
-1,3,บ้า🙄,negative,6242,demo,emoji_irony,3,บ้า,ไม่บ้า
-1,4,แปล๊กแปลก,negative,6207,demo,linguistic_neutral,4,แปลก,ไม่แปลก
-1,5,กว้างบ้านแกสิ,positive,6285,demo,linguistic_irony,5,กว้าง,ไม่กว้าง
